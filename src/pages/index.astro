@@ -1,0 +1,89 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import '../styles/home.css';
+
+import { getCollection } from 'astro:content';
+import BlogCard from '../components/BlogCard.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1 class="hero__title">
+            Hi! 👋 I'm Lluis. I'm mainly a <span class="hero__title--accent"
+              >software developer</span
+            > and I've been amazed by Tech & Business 💻 for as long as I can remember.
+          </h1>
+          <div class="hero__description">
+            <div>
+              <p>
+                Welcome! I am Lluis Pitarch, a dedicated software developer with
+                over six years of experience specializing in front-end
+                development. Throughout my career, I have had the opportunity to
+                work in various positions, honing my skills and deepening my
+                expertise in creating seamless, user-friendly interfaces.
+              </p>
+            </div>
+            <div>
+              <p>
+                My journey in the tech world has been fueled by a passion for
+                business, startups, product development, and design. I thrive in
+                dynamic environments where innovation and creativity intersect,
+                and I am driven by the challenge of turning complex problems
+                into elegant solutions.
+              </p>
+              <p>
+                Whether it's crafting intuitive user experiences, collaborating
+                with cross-functional teams, or exploring the latest industry
+                trends, I am committed to delivering high-quality results that
+                drive success. Let's connect and create something amazing
+                together!
+              </p>
+            </div>
+          </div>
+          <div class="hero__images">
+            <img src="/pic-1.jpg" />
+            <img src="/pic-2.jpg" />
+            <img src="/pic-3.jpg" />
+            <img src="/pic-4.jpg" />
+          </div>
+        </div>
+      </section>
+      <section class="blog">
+        <div class="container">
+          <div class="blog__title-container">
+            <span class="blog__subtitle">That’s my book</span>
+            <h2 class="blog__title">My last posts</h2>
+          </div>
+          {
+            posts.map((blog, index) => (
+              <BlogCard
+                slug={blog.slug}
+                number={String(index + 1)}
+                tags={blog.data.tags}
+                title={blog.data.title}
+                color={blog.data.color}
+              />
+            ))
+          }
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

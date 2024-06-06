@@ -1,0 +1,135 @@
+.hero {
+  min-height: 100svh;
+}
+
+.hero__title {
+  font-size: 4em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.hero__title--accent {
+  font-size: 1.05em;
+  font-family: 'Pixelated';
+  font-weight: 300;
+  color: var(--accent);
+}
+
+.hero__description {
+  margin-top: 4em;
+  padding: 1em 0;
+  border-top: var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4em;
+  text-align: justify;
+}
+
+@media screen and (max-width: 768px) {
+  .hero__description {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero__images {
+  width: 100%;
+
+  margin-top: 4em;
+  display: flex;
+  margin-bottom: -6em;
+}
+
+.hero__images img {
+  width: calc(25%);
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+
+.hero__images img:nth-child(1) {
+  left: 0;
+  top: 0;
+  animation: fade-in-1 0.8s ease-in-out;
+  transform: translateY(0px) rotate(-20deg);
+}
+.hero__images img:nth-child(2) {
+  left: 25%;
+  top: 0;
+  animation: fade-in-2 0.8s ease-in-out;
+  transform: translateY(0px) rotate(5deg);
+}
+.hero__images img:nth-child(3) {
+  left: 50%;
+  top: 0;
+  animation: fade-in-3 0.8s ease-in-out;
+  transform: translateY(0px) rotate(-7deg);
+}
+.hero__images img:nth-child(4) {
+  left: 75%;
+  top: 0;
+  transform: rotate(10deg);
+  animation: fade-in-4 0.8s ease-in-out;
+  transform: translateY(0px) rotate(10deg);
+}
+
+.blog {
+  background: white;
+  padding: 12em 0;
+}
+
+@keyframes fade-in-1 {
+  0% {
+    opacity: 0;
+    transform: translateY(200px) rotate(-25deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotate(-20deg);
+  }
+}
+
+@keyframes fade-in-2 {
+  0% {
+    opacity: 0;
+    transform: translateY(230px) rotate(15deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotate(5deg);
+  }
+}
+
+@keyframes fade-in-3 {
+  0% {
+    opacity: 0;
+    transform: translateY(190px) rotate(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotate(-7deg);
+  }
+}
+
+@keyframes fade-in-4 {
+  0% {
+    opacity: 0;
+    transform: translateY(200px) rotate(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotate(10deg);
+  }
+}
+
+.blog,
+.blog h2 {
+  color: var(--text-color-dark);
+}
+
+.blog__title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog__title-subtitle {
+  font-size: 1.2em;
+}

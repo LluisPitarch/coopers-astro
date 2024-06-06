@@ -1,0 +1,43 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+  <div class="container container--no-padding">
+    <nav>
+      <ViewTransitions />
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/#footer">Contact-me</HeaderLink>
+    </nav>
+  </div>
+</header>
+<style>
+  header {
+    margin: 0;
+    padding: 0 1em;
+    box-shadow: var(--box-shadow);
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 0;
+  }
+  nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: 'Pixelated';
+    text-transform: uppercase;
+    font-size: 1.5em;
+  }
+  .social-links,
+  .social-links a {
+    display: flex;
+  }
+  @media (max-width: 720px) {
+    .social-links {
+      display: none;
+    }
+  }
+</style>

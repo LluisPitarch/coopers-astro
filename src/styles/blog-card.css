@@ -1,0 +1,54 @@
+.blog-card {
+  color: var(--text-color-dark);
+  display: flex;
+  width: 100%;
+  padding: 1em 0;
+  border-top: var(--border);
+  border-color: var(--text-color-dark);
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.blog-card:hover {
+  background-color: var(--background-light);
+}
+
+.blog-card__header {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.blog-card__badge {
+  width: 1.5em;
+  height: 1.5em;
+  background-color: var(--blog-color, 'red');
+}
+
+.blog--magenta {
+  --blog-color: magenta;
+}
+
+.blog--red {
+  --blog-color: red;
+}
+
+.blog--orange {
+  --blog-color: orange;
+}
+
+.blog--blue {
+  --blog-color: blue;
+}
+
+.blog-card__tags {
+  display: flex;
+  gap: 1em;
+}
+
+.blog-card__tag {
+  border: var(--border);
+  padding: 0.1em 1em;
+  border-color: var(--text-color-dark);
+  border-radius: 1em;
+}

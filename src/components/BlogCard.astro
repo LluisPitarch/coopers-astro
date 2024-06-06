@@ -1,0 +1,29 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  tags: string[] | undefined;
+  color: string;
+  number: string;
+  slug: string;
+}
+import '../styles/blog-card.css';
+
+const { title, tags, color, number, slug } = Astro.props;
+---
+
+<a href={`/blog/${slug}`}>
+  <div class="blog-card">
+    <div class="blog-card__header">
+      <div>{number}</div>
+      <div class={`blog--${color} blog-card__badge`}></div>
+      <div>{title}</div>
+    </div>
+    <div class="blog-card__tags">
+      {tags?.map((tag) => <span class="blog-card__tag">{tag}</span>)}
+    </div>
+  </div>
+</a>

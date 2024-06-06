@@ -1,0 +1,64 @@
+---
+const today = new Date();
+---
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer__main">
+      <div class="footer__callout">Let’s build something COOL together</div>
+      <div class="footer__links">
+        <img src="/github.svg" />
+        <img src="/mail.svg" />
+        <a>Contact-me</a>
+      </div>
+    </div>
+    <div class="footer__copy">
+      &copy; {today.getFullYear()} Your name here. All rights reserved.
+    </div>
+  </div>
+</footer>
+<style>
+  footer {
+    padding: 6.5 0;
+    color: var(--text-color);
+    text-align: center;
+  }
+
+  .footer__main {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-end;
+    gap: 2em;
+    padding: 2em 0;
+    border-bottom: var(--border);
+    font-family: 'Pixelated';
+    text-transform: uppercase;
+  }
+
+  .footer__callout {
+    font-size: 2.25em;
+  }
+
+  .footer__links {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    width: max-content;
+  }
+
+  .footer__links a {
+    color: var(--text-color);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .footer__copy {
+    display: flex;
+    width: 100%;
+    padding: 2em 0;
+    justify-content: flex-start;
+    font-size: 0.75em;
+  }
+</style>
